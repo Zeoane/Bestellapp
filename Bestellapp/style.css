@@ -1,0 +1,211 @@
+html, body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+}
+#banner {
+    height: 22vh;
+    width: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+main::-webkit-scrollbar {
+    display: none;
+}
+.logo {
+    position: absolute;
+    bottom: 16px;
+    left: 12px;
+    width: 74px;
+    height: 22px;
+    z-index: 20;
+}
+#pizza, #pasta, #dessert {
+    margin-bottom: 1rem; 
+}
+
+#menu > div > h2 {
+    margin-bottom: 8px;
+}
+
+.menu-img {
+    width: clamp(50px, 15vw, 100px);
+    height: clamp(50px, 15vw, 100px);
+    object-fit: cover;
+    border-radius: 0.5rem; /* leicht rundere Ecken */
+}
+
+#cart {
+    position: fixed;
+    top: 64px; /* Höhe deines Navigationsbereichs */
+    right: 1rem;
+    width: calc(25% - 1rem);
+    background-color: #ffffff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100vh - 80px); /* NEU: Begrenzung, 80px Puffer */
+    padding-bottom: 1rem; /* falls nötig */
+    z-index: 20; /* NEU: Höher als nav */
+    transition: all 0.3s ease;
+}
+
+#cart.shrinked {
+    transform: scale(0.95);
+    opacity: 0.9;
+}
+
+#cart::-webkit-scrollbar {
+    display: none;
+}
+
+.cart-dialog {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    max-height: 90vh;
+    overflow: hidden;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    background: white;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.cart-dialog.open {
+    display: block;
+    transform: translateY(0);
+}
+
+#cartDialogContent {
+    overflow-y: auto;
+    max-height: calc(90vh - 140px);
+    padding-right: 8px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+#cartDialogContent::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+}
+
+#cartDialogContent::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+}
+
+#cartDialogContent::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cart-footer {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
+
+.mobile-cart-btn {
+    display: none;
+}
+.hidden-cart {
+    display: none !important;
+}
+.thumbs-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.footer-link {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.footer-link:hover {
+    color: #cccccc;
+}
+@media (min-width: 769px) {
+    #cart {
+        position: fixed;
+        top: 64px;
+        width: calc(25% - 1rem);
+        right: 1rem;
+    }
+    aside {
+        min-height: 100vh;
+    }
+}
+@media (max-width: 768px) {
+    #cart {
+        display: none;
+    }
+    .mobile-cart-btn {
+        z-index: 40;
+    }
+    .mobile-cart-btn:not(.hidden-cart) {
+        display: block;
+    }
+    aside {
+        display: none;
+    }
+}
+@media (max-width: 320px) {
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    #menu > div > h2 {
+        font-size: 1.25rem;
+    }
+    .flex.items-center {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .menu-img {
+        width: clamp(32px, 10vw, 48px);
+        height: clamp(32px, 10vw, 48px);
+    }
+    .flex.items-center button {
+        margin-top: 8px;
+    }
+}
+@media (max-width: 470px) {
+    .logo {
+        width: 84px;
+        height: 32px;
+    }
+}
+@media (max-width: 428px) {
+    .logo {
+        width: 74px;
+        height: 22px;
+    }
+}
+@media (max-width: 400px) {
+    .logo {
+        width: 64px;
+        height: 12px;
+    }
+}

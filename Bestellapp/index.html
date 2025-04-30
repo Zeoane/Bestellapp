@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Bestellapp</title>
+    <link rel="icon" type="image/png" href="img/icon/favicon-32x32.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow">
+        <div class="relative">
+            <div class="logo">
+                <img src="img\images\rsz_logo.png" alt="Restaurant Logo">
+            </div>
+            <img src="img\images\banner-image.png" alt="Restaurant Banner" id="banner">
+        </div>
+        <div class="container mx-auto px-4 py-4">
+            <h1 class="text-3xl font-bold">Delicious Pizzeria</h1>
+            <div class="flex items-center">
+                <span class="text-yellow-500">★★★★☆</span>
+                <span class="ml-2 text-gray-600">(4.5)</span>
+            </div>
+            <p class="text-gray-600">Italienische Küche, schnelle Lieferung</p>
+            <p class="text-gray-600">Lieferkosten: 2,50 € | Mindestbestellwert: 10,00 €</p>
+        </div>
+    </header>
+
+    <nav class="bg-gray-800 text-white sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-2 flex space-x-4 overflow-x-auto">
+            <a href="#pizza" class="px-4 py-2 hover:bg-gray-700">Pizza</a>
+            <a href="#pasta" class="px-4 py-2 hover:bg-gray-700">Pasta</a>
+            <a href="#dessert" class="px-4 py-2 hover:bg-gray-700">Dessert</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8 flex flex-col md:flex-row">
+        <section class="md:w-3/4 md:pr-4">
+            <div id="menu">
+                <!-- Menü wird hier per JavaScript eingefügt -->
+            </div>
+        </section>
+        <aside class="md:w-1/4 md:pl-4">
+            <div id="cart" class="bg-white p-4 rounded-lg shadow hidden-cart"></div>
+        </aside>
+    </main>
+
+    <button id="mobileCartBtn" class="mobile-cart-btn fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-2 rounded-full shadow hidden-cart">
+        Warenkorb (<span id="mobileCartTotal">0,00 €</span>)
+    </button>
+
+    <div id="cartDialog" class="cart-dialog bg-white p-4 shadow-lg rounded-t-lg">
+        <div class="flex justify-between items-center mb-4">            
+        </div>
+        <div id="cartDialogContent"></div>
+    </div>
+
+    <div id="orderConfirmation" class="hidden fixed top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-green-500 text-white p-4 rounded-lg shadow">
+        Testbestellung erfolgreich!
+    </div>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto px-4 text-center">
+            <div>
+                <a href="Impressum\impressum.html" class="footer-link">Impressum</a> | 
+                <a href="Datenschutz\datenschutz.html" class="footer-link">Datenschutz</a>
+            </div>
+            <p>© 2025 Delicious Restaurant. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+   
+<script src="js/menu.js"></script>  
+<script src="js/template.js"></script>
+<script src="js/script.js"></script>     
+<script src="js/thumb.js"></script>  
+     </body>
+</html>
